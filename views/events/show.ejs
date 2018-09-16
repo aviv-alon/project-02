@@ -1,0 +1,77 @@
+<section class="section">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-half">
+        <h1 class="title is-1"><%= event.name %></h1>
+        <img src="<%= event.imageCover %>" alt="<%= event.name %>" height="200" />
+        <hr />
+        <div class="content">
+
+          <h5>About</h5>
+          <p><%= event.about %></p>
+
+          <% if(locals.isAuthenticated && event.user && locals.currentUser._id.equals(event.user._id)) { %>
+            <hr />
+            <a class="button is-primary" href="/events/<%= event._id %>/edit">Edit</a>
+
+            <form method="POST" action="/events/<%= event._id %>">
+              <input type="hidden" name="_method" value="DELETE" />
+              <button class="button is-danger">Delete</button>
+            </form>
+          <% } %>
+        </div>
+      </div>
+      <div class="column is-half">
+        <h5 class="title is-5">Comments</h5>
+
+        <% event.comments.forEach(comment => { %>
+          <article class="media">
+            <figure class="media-left">
+              <p class="image is-64x64">
+                <img src="https://bulma.io/images/placeholders/128x128.png">
+              </p>
+            </figure>
+            <div class="media-content">
+              <div class="content">
+                <p>
+                  <strong><%= comment.user.username %></strong>
+                  <small>31m</small>
+                  <br>
+                  <%= comment.content %>
+                </p>
+              </div>
+            </div>
+            <% if(locals.isAuthenticated && event.user && locals.currentUser._id.equals(event.user._id)) { %>
+              <div class="media-right">
+                <form method="POST" action="/events/<%= event._id %>/comments/<%= comment._id %>">
+                  <input type="hidden" name="_method" value="DELETE">
+                  <button class="delete"></button>
+                </form>
+              </div>
+            <% } %>
+          </article>
+        <% }) %>
+
+        <% if(locals.isAuthenticated) { %>
+          <article class="media">
+            <figure class="media-left">
+              <p class="image is-64x64">
+                <img src="https://bulma.io/images/placeholders/128x128.png">
+              </p>
+            </figure>
+            <div class="media-content">
+              <form method="POST" action="/events/<%= event._id %>/comments">
+                <div class="field">
+                  <div class="control">
+                    <textarea class="textarea" name="content" placeholder="Add a comment..."></textarea>
+                  </div>
+                </div>
+                <button class="button is-primary">Submit</button>
+              </form>
+            </div>
+          </article>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</section>

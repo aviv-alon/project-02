@@ -1,0 +1,31 @@
+<section class="section">
+  <div class="container">
+
+    <form method="POST" action="/events">
+      <div class="field">
+        <label class="label" for="name">Name</label>
+        <div class="control">
+          <input class="input" name="name" id="name" placeholder="Name" required minlength="2" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label" for="imageCover">Cover Image</label>
+        <div class="control">
+          <input class="input" name="imageCover" id="imageCover" placeholder="Image url" required pattern="^https?://.+" />
+        </div>
+      </div>
+
+
+
+      <div class="field">
+        <label class="label" for="about">About</label>
+        <div class="control">
+          <textarea class="textarea" name="about" id="about" placeholder="About" required></textarea>
+        </div>
+      </div>
+
+      <button class="button is-primary">Submit</button>
+    </form>
+  </div>
+</section>

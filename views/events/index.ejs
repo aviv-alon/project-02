@@ -1,0 +1,35 @@
+<section class="section">
+  <div class="container">
+
+    <div class="columns is-multiline">
+      <% locals.events.forEach(event => { %>
+        <div class="column is-one-third-desktop is-half-tablet">
+          <div class="card">
+            <header class="card-header">
+              <p class="card-header-title">
+                <%= event.name %>
+              </p>
+            </header>
+            <a href="/events/<%= event._id %>">
+              <div class="card-image">
+                <figure class="image">
+                  <img src="<%= event.imageCover %>" alt="<%= event.name %>">
+                </figure>
+              </div>
+              <div class="card-content">
+
+
+                <div class="content">
+
+                  <h5>About</h5>
+                  <p><%= event.about %></p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+      <% }) %>
+    </div>
+  </div>
+</section>

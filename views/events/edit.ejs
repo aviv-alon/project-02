@@ -1,0 +1,34 @@
+<section class="section">
+  <div class="container">
+
+    <form method="POST" action="/events/<%= event._id %>">
+
+      <input type="hidden" name="_method" value="PUT" />
+
+      <div class="field">
+        <label class="label" for="name">Name</label>
+        <div class="control">
+          <input class="input" name="name" id="name" placeholder="Name" required minlength="2" value="<%= event.name %>"/>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label" for="imageCover">Image Cover</label>
+        <div class="control">
+          <input class="input" name="imageCover" id="imageCover" placeholder="Image" required pattern="^https?://.+" value="<%= event.image %>"/>
+        </div>
+      </div>
+
+
+
+      <div class="field">
+        <label class="label" for="about">About</label>
+        <div class="control">
+          <textarea class="textarea" name="about" id="about" placeholder="About" required><%= event.about %></textarea>
+        </div>
+      </div>
+
+      <button class="button is-primary">Submit</button>
+    </form>
+  </div>
+</section>

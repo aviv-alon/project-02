@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>WedSnap</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/app.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+          🍸
+        </a>
+
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div class="navbar-menu">
+        <div class="navbar-end">
+          <a class="navbar-item" href="/">Home</a>
+          <a class="navbar-item" href="/events">All the events</a>
+
+          <% if(locals.isAuthenticated) { %>
+            <a class="navbar-item" href="/events/new">Add a event</a>
+            <a class="navbar-item" href="/logout">Logout</a>
+          <% } else { %>
+            <a class="navbar-item" href="/login">Login</a>
+            <a class="navbar-item" href="/register">Register</a>
+          <% } %>
+        </div>
+      </div>
+    </nav>
+
+
+    <!-- prints out our flash messages -->
+    <% for (const type in messages) { %>
+      <p class="notification is-<%= type %>"><%= messages[type] %></p>
+    <% } %>
+
+    <main>
+      <%- body %>
+    </main>
+  </body>
+</html>
