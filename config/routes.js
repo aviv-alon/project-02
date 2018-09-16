@@ -2,6 +2,7 @@ const router = require('express').Router(),
   eventsController = require('../controllers/events'),
   registrationsController = require('../controllers/registrations'),
   sessionsController = require('../controllers/sessions'),
+  photosController = require('../controllers/photos'),
   // IMPORTANT -- this allows us to stop unauthenticated users
   // accessing specific routes
   secureRoute = require('../lib/secureRoute');
@@ -23,6 +24,10 @@ router.get('/events/:id/edit', secureRoute, eventsController.edit);
 
 router.post('/events/:id/comments', secureRoute, eventsController.createComment);
 router.delete('/events/:id/comments/:commentId', secureRoute, eventsController.deleteComment);
+
+
+router.post('/events/:id/photos', secureRoute, photosController.create);
+//router.delete('/events/:id/photos/:photoId', secureRoute, photosController.delete);
 
 router.route('/register')
   .get(registrationsController.new)

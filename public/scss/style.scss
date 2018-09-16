@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Sacramento|Fredericka+the+Great');
+
+body {
+  font-family: 'Open Sans Condensed', sans-serif;
+
+  .hero {
+    background-color: #EFD9CE;
+    color: white;
+    text-align: center;
+    padding-top: 10%;
+
+    h1.title {
+      color: #ffffff;
+      font-size: 90px;
+
+      svg {
+        width: 15px;
+        transform: rotate(328deg);
+        fill-opacity: 1;
+        stroke-width: 1;
+        stroke: rgba(255, 255, 255, 1);
+        stroke-opacity: 1;
+        fill: rgba(255, 255, 255, 1);
+
+      }
+    }
+
+
+
+  }
+
+  .logo {
+    font-family: 'Sacramento', cursive;
+  }
+  .button {
+    background-color: #7DB9B7;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #ffffff;
+    display: inline-block;
+    font-size: 18px;
+    padding: 0 16px;
+    transition: background-color .3s;
+    box-shadow: 0 30px 40px 0 rgba(0, 0, 0, 0.15);
+    margin-top: 16px;
+  }
+
+  // 
+  // img.cover-image {
+  //   top:0;
+  //   position: absolute;
+  // }
+  // h1.event-name {
+  //   top: 40vh;
+  //   left: 40vw;
+  //   font-family: 'Fredericka the Great', cursive;
+  //   font-size: 80px;
+  //   position: absolute;
+  //   text-align: center;
+  //   color: #ffffff;
+  // }
+  // div.event-menu {
+  //   position: absolute;
+  //   color: #ffffff;
+  //   top: 50vh;
+  // }
+}
+
+/*# sourceMappingURL=style.css.map */

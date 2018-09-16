@@ -14,6 +14,7 @@ function showRoute(req, res) {
   Event
     .findById(req.params.id)
     .populate('user comments.user')
+    .populate('photos')
     .exec((err, event) => {
       res.render('events/show', { event });
     });
@@ -65,7 +66,6 @@ function deleteRoute(req, res) {
 }
 
 function createCommentRoute(req, res) {
-
   // IMPORTANT - this adds the currentUser to the form data so that it can be
   // referenced on the model -- possible because of `lib/auth.js`
   req.body.user = req.currentUser;
@@ -86,6 +86,8 @@ function deleteCommentRoute(req, res) {
     });
   });
 }
+
+
 
 module.exports = {
   index: indexRoute,

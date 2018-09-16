@@ -1,1 +1,36 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Sacramento|Fredericka+the+Great");
+body {
+  font-family: 'Open Sans Condensed', sans-serif; }
+  body .hero {
+    background-color: #EFD9CE;
+    color: white;
+    text-align: center;
+    padding-top: 10%; }
+    body .hero h1.title {
+      color: #ffffff;
+      font-size: 90px; }
+      body .hero h1.title svg {
+        width: 15px;
+        transform: rotate(328deg);
+        fill-opacity: 1;
+        stroke-width: 1;
+        stroke: white;
+        stroke-opacity: 1;
+        fill: white; }
+  body .logo {
+    font-family: 'Sacramento', cursive; }
+  body .button {
+    background-color: #7DB9B7;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #ffffff;
+    display: inline-block;
+    font-size: 18px;
+    padding: 0 16px;
+    transition: background-color .3s;
+    box-shadow: 0 30px 40px 0 rgba(0, 0, 0, 0.15);
+    margin-top: 16px; }
 
+/*# sourceMappingURL=style.css.map */
+
+/*# sourceMappingURL=style.css.map */

@@ -4,14 +4,20 @@
     <meta charset="utf-8">
     <title>WedSnap</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+
     <link rel="stylesheet" href="/css/style.css">
     <script src="/js/app.js" charset="utf-8"></script>
   </head>
   <body>
+
     <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <a class="navbar-item" href="/">
-          🍸
+          <div class="logo">
+            WedSnap
+          </div>
         </a>
 
         <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
@@ -46,5 +52,16 @@
     <main>
       <%- body %>
     </main>
+
+    <!-- footer -->
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p>
+          <strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is licensed
+          <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+          is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+        </p>
+      </div>
+    </footer>
   </body>
 </html>
