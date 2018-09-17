@@ -5,18 +5,15 @@ const commentSchema = new mongoose.Schema({
   user: { type: mongoose.Schema.ObjectId, ref: 'User', required: true }
 });
 
-const likesSchema = new mongoose.Schema({
-  user: { type: mongoose.Schema.ObjectId, ref: 'User', required: true }
-});
-
 // describe the schema
 const photoSchema = new mongoose.Schema({
   url: { type: String, required: true, pattern: /^https?:\/\/.+/ },
   location: { type: String },
   time: { type: String },
   comments: [ commentSchema ],
-  likes: [ likesSchema ],
+  likes: [ { type: mongoose.Schema.ObjectId, ref: 'User'} ],
   user: { type: mongoose.Schema.ObjectId, ref: 'User', required: true }
+
 });
 
 // create the model

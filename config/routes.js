@@ -29,6 +29,9 @@ router.delete('/events/:id/comments/:commentId', secureRoute, eventsController.d
 router.post('/events/:id/photos', secureRoute, photosController.create);
 //router.delete('/events/:id/photos/:photoId', secureRoute, photosController.delete);
 
+router.post('/events/:id/photos/:photoId/like', secureRoute, photosController.addLike);
+//router.delete('/events/:id/photos/:photoId', secureRoute, photosController.delete);
+
 router.route('/register')
   .get(registrationsController.new)
   .post(registrationsController.create);
