@@ -22,6 +22,8 @@ router.route('/events/:id')
 
 router.get('/events/:id/edit', secureRoute, eventsController.edit);
 
+router.post('/events/:id/join', secureRoute, eventsController.createMember);
+
 router.post('/events/:id/comments', secureRoute, eventsController.createComment);
 router.delete('/events/:id/comments/:commentId', secureRoute, eventsController.deleteComment);
 

@@ -13,7 +13,7 @@ function indexRoute(req, res) {
 function showRoute(req, res) {
   Event
     .findById(req.params.id)
-    .populate('user comments.user')
+    .populate('user')
     .populate('photos')
     .exec((err, event) => {
       res.render('events/show', { event });
@@ -25,15 +25,16 @@ function newRoute(req, res) {
 }
 
 function createRoute(req, res) {
-  // req.body contains the form data, because body-parser puts
-  // it there!
-  // without body-parser there is no req.body!!!!!!!!!!! 💥
-
-  // IMPORTANT - this adds the currentUser to the form data so that it can be
-  // referenced on the model -- possible because of `lib/auth.js`
+  req.body.createdBy = req.currentUser;
   req.body.user = req.currentUser;
-  Event.create(req.body, () => {
-    res.redirect('/events');
+  req.body.isAdmin = true;
+  Event.create(req.body, (err,event) => {
+    console.log(this._id);
+    event.members.push(req.body);
+    event.save(() => {
+      res.redirect(`/events/${event._id}`);
+    });
+    //res.redirect('/events');
   });
 }
 
@@ -87,6 +88,17 @@ function deleteCommentRoute(req, res) {
   });
 }
 
+const createMemberRoute = (req, res) => {
+  req.body.user = req.currentUser;
+  Event.findById(req.params.id, (err, event) => {
+    event.members.push(req.body);
+    event.save(() => {
+      res.redirect(`/events/${req.params.id}`);
+    });
+  });
+};
+
+
 
 
 module.exports = {
@@ -98,5 +110,6 @@ module.exports = {
   update: updateRoute,
   delete: deleteRoute,
   createComment: createCommentRoute,
-  deleteComment: deleteCommentRoute
+  deleteComment: deleteCommentRoute,
+  createMember: createMemberRoute
 };
