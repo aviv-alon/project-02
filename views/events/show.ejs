@@ -9,6 +9,10 @@
     <form method="GET" action="/register">
       <button class="button">SignUp</button>
     </form>
+
+    <form method="GET" action="/login">
+      <button class="button">Login</button>
+    </form>
   <% } else if(locals.isAuthenticated && !event.hasMember(locals.currentUser)) { %>
     <form method="POST" action="/events/<%= event._id %>/join">
       <button>
@@ -41,9 +45,9 @@
       <% event.members.forEach( member => { %>
       <div class="users-picture">
         <figure class="image is-64x64">
-          "<%= member.user._id %>"
           <img class="is-rounded" src="<%= member.user.picture %>">
         </figure>
+        <%= member.user.fullName %>
       </div>
       <% }); %>
 

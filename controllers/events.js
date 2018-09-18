@@ -13,7 +13,7 @@ function indexRoute(req, res) {
 function showRoute(req, res) {
   Event
     .findById(req.params.id)
-    .populate('user')
+    .populate('createdBy members.user')
     .populate('photos')
     .exec((err, event) => {
       res.render('events/show', { event });
