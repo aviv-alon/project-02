@@ -18,18 +18,33 @@
               </div>
               <div class="card-content">
 
-
                 <div class="content">
 
                   <h5>About</h5>
                   <p><%= event.about %></p>
                 </div>
+                <% if(locals.isAuthenticated && event.hasAdmin(locals.currentUser)) { %>
+                  <hr />
+                  <a class="button is-primary" href="/events/<%= event._id %>/edit">Edit</a>
+
+                  <form method="POST" action="/events/<%= event._id %>">
+                    <input type="hidden" name="_method" value="DELETE" />
+                    <button class="button is-danger">Delete</button>
+                  </form>
+                <% } %>
               </div>
             </a>
           </div>
         </div>
-
       <% }) %>
+      <div class="column is-one-third-desktop is-half-tablet">
+        <div class="card">
+          <p>ready for next adventure...</p>
+          <img src="assets/images/6971.jpg" alt="image of book">
+          <a class="button is-primary" href="/events/new">Create new event</a>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>

@@ -24,28 +24,35 @@ body {
 
       }
     }
+  }
+  .member-picture {
+    margin-bottom: 20px;
+    align-items: center;
+  }
 
-
-
+  .member-name {
+    text-align: center;
   }
 
   .logo {
     font-family: 'Sacramento', cursive;
   }
-  .button {
+  .button-main {
     background-color: #7DB9B7;
     border: 1px solid transparent;
     border-radius: 4px;
     color: #ffffff;
     display: inline-block;
     font-size: 18px;
-    padding: 0 16px;
+    padding: 10px 16px;
     transition: background-color .3s;
     box-shadow: 0 30px 40px 0 rgba(0, 0, 0, 0.15);
     margin-top: 16px;
   }
 
-  // 
+
+
+  //
   // img.cover-image {
   //   top:0;
   //   position: absolute;

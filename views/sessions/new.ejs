@@ -1,5 +1,8 @@
 <section class="section">
   <div class="container">
+
+    <h1 class="title"> Login </h1>
+
     <form method="POST" action="/login">
       <div class="field">
         <label class="label" for="phoneNumber">phone Number</label>
@@ -7,6 +10,7 @@
           <input class="input" name="phoneNumber" id="phoneNumber" placeholder="Phone Number" />
         </div>
       </div>
+
       <div class="field">
         <label class="label" for="password">Password</label>
         <div class="control">
@@ -16,5 +20,9 @@
 
       <button class="button is-primary">Submit</button>
     </form>
+
+    <p class="forgot-pass">
+      Don't have an account? <a href="/register">Sign up</a>
+    </p>
   </div>
 </section>

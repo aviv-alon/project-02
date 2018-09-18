@@ -13,8 +13,13 @@ function indexRoute(req, res) {
 function showRoute(req, res) {
   Event
     .findById(req.params.id)
-    .populate('createdBy members.user')
-    .populate('photos')
+    .populate('createdBy members.user comments.user')
+    .populate({
+      path: 'photos',
+      populate: {
+        path: 'user'
+      }
+    })
     .exec((err, event) => {
       res.render('events/show', { event });
     });

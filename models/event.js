@@ -28,5 +28,8 @@ eventSchema.methods.hasMember = function(user) {
   return !!this.members.find(member => member.user.equals(user._id));
 };
 
+eventSchema.methods.hasAdmin = function(user) {
+  return this.members.find(member => (!!member.user.equals(user._id) && member.isAdmin));
+};
 // create the model
 module.exports = mongoose.model('Event', eventSchema);

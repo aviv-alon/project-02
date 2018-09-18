@@ -31,9 +31,6 @@ function addLikeRoute (req, res) {
   req.body.user = req.currentUser;
 
   Photo.findById(req.params.photoId, (err, photo) => {
-    // console.log(photo.likes[0]._id.equals(req.body.user._id));
-    // if(photo.likes.find(el => el._id.equals(req.body.user._id)))
-    //   console.log(true);
     photo.likes.push(req.body.user);
     photo.save(() => {
       res.redirect(`/events/${req.params.id}/#${req.params.photoId}`);
