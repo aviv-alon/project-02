@@ -44,8 +44,3 @@ app.use(routes);
 
 // listen for incoming traffic -- app.listen()
 app.listen(port, () => console.log(`Express is running on port ${port}`));
-
-
-
-
-//app.get('/', (req, res) => res.send('<h1>Hello world!</h1>'));

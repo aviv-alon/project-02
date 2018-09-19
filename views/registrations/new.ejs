@@ -5,8 +5,11 @@
 
     <h1 class="title">Sign up</h1>
 
+    <%# todo: add validation %>
     <form method="POST" action="/register">
 
+      <%# --Full Name-- %>
+      <%# todo: add logo of user from bulma.io %>
       <div class="field">
         <label class="label" for="fullName">Full Name</label>
         <div class="control">
@@ -14,6 +17,8 @@
         </div>
       </div>
 
+      <%# -Phone Number- %>
+      <%# todo - add option to choose country number with flag%>
       <div class="field">
         <label class="label" for="phoneNumber">Phone Number</label>
         <div class="control">
@@ -21,7 +26,7 @@
         </div>
       </div>
 
-
+      <%# -Password- %>
       <div class="field">
         <label class="label" for="password">Password</label>
         <p class="control has-icons-left">
@@ -32,6 +37,7 @@
         </p>
       </div>
 
+      <%# -Password confirmation- %>
       <div class="field">
         <label class="label" for="passwordConfirmation">Password Confirmation</label>
         <p class="control has-icons-left">
@@ -42,6 +48,7 @@
         </p>
       </div>
 
+      <%# -Profile Picture- %>
       <strong>Profile picture</strong>
       <div class="file has-name is-fullwidth">
         <label class="file-label" for="picture-name">
@@ -62,16 +69,17 @@
       </div>
 
 
-
+      <%# -agree (checkbox)- %>
       <div class="field">
         <div class="control">
           <label class="checkbox">
-            <input type="checkbox">
+            <input type="checkbox" required>
             I agree to the <a href="#">terms and conditions</a>
           </label>
         </div>
       </div>
 
+      <%# -submit & cancel button- %>
       <div class="field is-grouped">
         <div class="control">
           <button class="button is-link">Submit</button>
