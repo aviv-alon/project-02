@@ -1,14 +1,29 @@
-@import url("https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Sacramento|Fredericka+the+Great");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Sacramento|Fredericka+the+Great|Romanesco");
 body {
   font-family: 'Open Sans Condensed', sans-serif; }
+  body .button.is-link {
+    background: #31516F;
+    margin: 5px; }
+  body .title {
+    padding: 10px; }
+  body nav.main {
+    position: absolute;
+    width: 100%; }
+  body section {
+    display: block;
+    background-color: white;
+    position: relative;
+    padding: 5px; }
   body .hero {
     background-color: #EFD9CE;
     color: white;
     text-align: center;
     padding-top: 10%; }
     body .hero h1.title {
+      margin-top: 20vh;
+      padding: 30px;
       color: #ffffff;
-      font-size: 90px; }
+      font-size: 70px; }
       body .hero h1.title svg {
         width: 15px;
         transform: rotate(328deg);
@@ -17,6 +32,75 @@ body {
         stroke: white;
         stroke-opacity: 1;
         fill: white; }
+  body header.ev-show {
+    height: 55vw;
+    z-index: auto; }
+    body header.ev-show figure {
+      position: fixed; }
+      body header.ev-show figure h1 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 300%;
+        font-family: 'Romanesco', cursive;
+        color: #FCF8F6; }
+  body nav.ev-show {
+    position: -webkit-sticky;
+    position: sticky;
+    display: block;
+    top: 0;
+    margin-bottom: 0 !important;
+    background: #ffffff;
+    z-index: 4; }
+    body nav.ev-show button#addPhoto {
+      background: #31516F;
+      color: white;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      position: absolute;
+      margin-top: 15px;
+      margin-left: 15px;
+      font-size: 14px; }
+  body .modal-content {
+    display: block;
+    background: #ffffff;
+    height: 70vh;
+    text-align: center;
+    padding: 20px; }
+    body .modal-content input {
+      margin-bottom: 20px; }
+    body .modal-content button.is-primary {
+      margin: 20px; }
+  body section.ev-show-photos .card-content.likes {
+    padding-bottom: 5 !important; }
+    body section.ev-show-photos .card-content.likes button {
+      border: white; }
+      body section.ev-show-photos .card-content.likes button i.fas {
+        color: #EF4C5F; }
+  body section.ev-show-photos .card-content.info {
+    padding-top: 0 !important; }
+  body section.ev-show-auth {
+    z-index: auto; }
+    body section.ev-show-auth .card {
+      padding: 30px;
+      height: 60vh;
+      text-align: center; }
+      body section.ev-show-auth .card p {
+        padding: 15px;
+        font-size: 18px; }
+      body section.ev-show-auth .card button {
+        margin: 10px; }
+  body section.ev-show-about p {
+    padding: 10px;
+    font-size: 18px; }
+    body section.ev-show-about p span.icon {
+      padding: 25px;
+      color: #7B90A3; }
+  body section.ev-show-about .subtitle {
+    margin-top: 10px;
+    padding: 15px;
+    font-weight: 600; }
   body .member-picture {
     margin-bottom: 20px;
     align-items: center; }
@@ -35,6 +119,8 @@ body {
     transition: background-color .3s;
     box-shadow: 0 30px 40px 0 rgba(0, 0, 0, 0.15);
     margin-top: 16px; }
+  body .ev-index-btns form {
+    display: inline; }
 
 /*# sourceMappingURL=style.css.map */
 

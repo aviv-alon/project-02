@@ -9,6 +9,12 @@ const userSchema = new mongoose.Schema({
   picture: { type: String, pattern: /^https?:\/\/.+/ }
 });
 
+userSchema.virtual('eventsAttending', {
+  localField: '_id',
+  foreignField: 'members.user',
+  ref: 'Event'
+});
+
 userSchema.virtual('passwordConfirmation')
   .set(function setPasswordConfirmation(passwordConfirmation) {
     this._passwordConfirmation = passwordConfirmation;

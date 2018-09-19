@@ -24,13 +24,15 @@
                   <p><%= event.about %></p>
                 </div>
                 <% if(locals.isAuthenticated && event.hasAdmin(locals.currentUser)) { %>
-                  <hr />
-                  <a class="button is-primary" href="/events/<%= event._id %>/edit">Edit</a>
+                  <div class="ev-index-btns">
+                    <hr />
+                    <a class="button is-link" href="/events/<%= event._id %>/edit">Edit</a>
 
-                  <form method="POST" action="/events/<%= event._id %>">
-                    <input type="hidden" name="_method" value="DELETE" />
-                    <button class="button is-danger">Delete</button>
-                  </form>
+                    <form method="POST" action="/events/<%= event._id %>">
+                      <input type="hidden" name="_method" value="DELETE" />
+                      <button class="button is-text">Delete</button>
+                    </form>
+                  </div>
                 <% } %>
               </div>
             </a>
@@ -41,7 +43,7 @@
         <div class="card">
           <p>ready for next adventure...</p>
           <img src="assets/images/6971.jpg" alt="image of book">
-          <a class="button is-primary" href="/events/new">Create new event</a>
+          <a class="button is-link" href="/events/new">Create new event</a>
         </div>
       </div>
 

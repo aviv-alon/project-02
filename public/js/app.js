@@ -1,27 +1,15 @@
 window.addEventListener('DOMContentLoaded', function () {
-  // Get all "navbar-burger" elements
-  const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
 
-  // Check if there are any navbar burgers
-  if ($navbarBurgers.length > 0) {
+  (function() {
+    var burger = document.querySelector('.burger');
+    var nav = document.querySelector('#navMenu');
 
-    // Add a click event on each of them
-    $navbarBurgers.forEach( el => {
-      el.addEventListener('click', () => {
-
-        // Get the target from the "data-target" attribute
-        const target = el.dataset.target;
-        const $target = document.getElementById(target);
-
-        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-        el.classList.toggle('is-active');
-        $target.classList.toggle('is-active');
-
-      });
+    burger.addEventListener('click', function(){
+      console.log('vvvfff');
+      burger.classList.toggle('is-active');
+      nav.classList.toggle('is-active');
     });
-  }
-
-
+  })();
 
 
   // Set up the picker
@@ -56,4 +44,19 @@ window.addEventListener('DOMContentLoaded', function () {
     nameBox.appendChild(name);
 
   }
+
+  (function() {
+  // popup model
+    const btnAddPhoto = document.getElementById('addPhoto');
+    const modal = document.querySelector('.modal');
+    const btnCloseModel = document.querySelector('.modal-close');
+
+    btnAddPhoto.addEventListener('click', () => {
+      modal.classList.add('is-active');
+    });
+
+    btnCloseModel.addEventListener('click', () => {
+      modal.classList.remove('is-active');
+    });
+  })();
 });

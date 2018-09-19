@@ -16,6 +16,7 @@ function showRoute(req, res) {
     .populate('createdBy members.user comments.user')
     .populate({
       path: 'photos',
+      options: { sort: { time: -1 } },
       populate: {
         path: 'user'
       }

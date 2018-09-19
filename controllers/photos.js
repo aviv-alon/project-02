@@ -29,7 +29,6 @@ function deleteRoute(req, res) {
 
 function addLikeRoute (req, res) {
   req.body.user = req.currentUser;
-
   Photo.findById(req.params.photoId, (err, photo) => {
     photo.likes.push(req.body.user);
     photo.save(() => {

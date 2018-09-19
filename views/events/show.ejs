@@ -1,122 +1,91 @@
 <script src="//static.filestackapi.com/filestack-js/1.x.x/filestack.min.js"></script>
-<header>
-      <img class="cover-image" src="<%= event.imageCover %>" alt="<%= event.name %>" height="200" />
-      <h1 class="title is-1 event-name"><%= event.name %></h1>
+
+<header class="ev-show">
+  <figure>
+    <img class="cover-image" src="<%= event.imageCover %>" alt="<%= event.name %>" height="200" />
+    <h1><%= event.name %></h1>
+  </figure>
 </header>
 
+<% if( !locals.isAuthenticated ) { %>
+  <section class="ev-show-auth">
+    <div class="card">
+      <p> Pleas signup or login to watch this page </p>
 
-<section class="section">
-  <div class="container">
+      <a href="/register">
+        <button class="button">Signup</button>
+      </a>
 
-  <% if( !locals.isAuthenticated ) { %>
+      <a href="/login">
+        <button class="button">Login</button>
+      </a>
+    </div>
+  </section>
+<% } else if(locals.isAuthenticated && !event.hasMember(locals.currentUser)) { %>
 
-    <form method="GET" action="/register">
-      <button class="button">SignUp</button>
-    </form>
+  <form method="POST" action="/events/<%= event._id %>/join">
+    <button>
+      join
+    </button>
+  </form>
 
-    <form method="GET" action="/login">
-      <button class="button">Login</button>
-    </form>
+<% } else if(locals.isAuthenticated && event.hasMember(locals.currentUser)) { %>
 
-  <% } else if(locals.isAuthenticated && !event.hasMember(locals.currentUser)) { %>
+  <!-- navbar -->
+  <nav class="content event-menu ev-show">
 
-    <form method="POST" action="/events/<%= event._id %>/join">
-      <button>
-        join
-      </button>
-    </form>
+    <button class="button is-small is-link" id="addPhoto">add Photo</button>
 
-  <% } else if(locals.isAuthenticated && event.hasMember(locals.currentUser)) { %>
-
-    <div class="content event-menu">
-      <div class="tabs is-centered">
-        <ul>
-          <li class="is-active"><a href="#ev-about">About</a></li>
-          <li><a href="#ev-photos">Photos</a></li>
-          <li><a href="#ev-congrates">Congrates</a></li>
-        </ul>
-      </div>
+    <div class="tabs is-centered">
+      <ul>
+        <li class="is-active"><a href="#ev-photos">Photos</a></li>
+        <li><a href="#ev-congrates">Congrates</a></li>
+        <li><a href="#ev-about">About</a></li>
+      </ul>
     </div>
 
+  </nav>
 
-    <%# ---- About ---- %>
-    <section id="ev-about">
-      <h2>About</h2>
+  <!-- Photos -->
+  <section class="ev-show-photos">
 
-      <p><%= event.about %></p>
-
-      <h3 class="subtitle"> Location </h3>
-      <p><%= event.location %></p>
-
-      <h3 class="subtitle">Date</h3>
-      <p><%= event.startTime %></p>
-
-      <h3 class="subtitle">Members</h3>
-      <div class="columns">
-      <% event.members.forEach( member => { %>
-        <div class="column is-one-fifth">
-
-          <div class="member-picture">
-            <figure class="image is-64x64">
-              <img class="is-rounded" src="<%= member.user.picture %>">
-            </figure>
+    <!-- Photos - Add new photo -->
+    <div class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+      <h2 class="title"> Upload Photo</h2>
+      <div class="ev-new-photo">
+        <form method="POST" action="/events/<%= event._id %>/photos">
+          <div class="field">
+            <div class="control">
+              <input class="input" name="caption" id="caption" placeholder="Add caption" />
+            </div>
+          </div>
+          <div class="file has-name is-fullwidth">
+            <label class="file-label" for="picture-name">
+              <input class="file-input" type="file" name="picture-name">
+              <span class="file-cta" id="picker">
+                <span class="file-icon">
+                  <i class="fas fa-upload"></i>
+                </span>
+                <span class="file-label">
+                  Choose a picture…
+                </span>
+              </span>
+              <span class="file-name" id="fileupload">
+                image name
+              </span>
+            </label>
+            <input id="picture" name="url" type="hidden">
           </div>
 
-          <div class="member-name">
-            <p>
-              <%= member.user.fullName %></br>
-              <% if(locals.currentUser._id.equals(member.user._id)){ %>
-                (You)
-              <% } %>
-            </p>
-          </div>
-
-        </div>
-      <% }); %>
+          <button class="button is-primary">Submit</button>
+        </form>
       </div>
-    </section>
-
-
-
-    <% if(locals.isAuthenticated && event.hasAdmin(locals.currentUser)) { %>
-      <hr />
-      <a class="button is-primary" href="/events/<%= event._id %>/edit">Edit</a>
-
-      <form method="POST" action="/events/<%= event._id %>">
-        <input type="hidden" name="_method" value="DELETE" />
-        <button class="button is-danger">Delete</button>
-      </form>
-    <% } %>
-
-
-
-    <%# ---- Photos ---- %>
-    <h2 class="title is-5" id="ev-photos">Photos</h2>
-
-    <%# ---- Photos - Add new photo ---- %>
-    <div class="ev-new-photo">
-      <form method="POST" action="/events/<%= event._id %>/photos">
-        <div class="file has-name ">
-          <label class="file-label" for="picture-name">
-            <input class="file-input" type="file" name="picture-name">
-            <span class="file-cta" id="picker">
-              <span class="file-icon">
-                <i class="fas fa-upload"></i>
-              </span>
-              <span class="file-label">
-                Choose a profile picture…
-              </span>
-            </span>
-            <span class="file-name" id="fileupload">
-              image name
-            </span>
-          </label>
-          <input id="picture" name="url" type="hidden">
-        </div>
-
-        <button class="button is-primary">Submit</button>
-      </form>
     </div>
+    <button class="modal-close is-large" aria-label="close"></button>
+  </div>
+
 
     <%# ---- Photos - show all photos ---- %>
     <% event.photos.forEach(photo => { %>
@@ -131,7 +100,9 @@
             </div>
             <div class="media-content">
               <p class="title is-4"><%= photo.user.fullName %></p>
-              <p class="subtitle is-6">"<%= photo.user._id %>"</p>
+              <p class="subtitle is-6">
+                <time><%= photo.time.toDateString() %></time>
+              </p>
             </div>
           </div>
         </div>
@@ -142,7 +113,7 @@
           </figure>
         </div>
 
-        <div class="card-content">
+        <div class="card-content likes">
         <% if(photo.likes.find(el => el._id.equals(locals.currentUser._id))) {%>
             <button>
               <span class="icon is-medium">
@@ -159,73 +130,112 @@
           </form>
         <% } %>
         </div>
-
-        <div class="card-content">
-          <p> likes: <%= photo.likes.length %> </p>
+        <div class="card-content info">
+          <p><strong> <%= photo.likes.length %>  likes</p></strong>
           <div class="content">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-            <a href="#">#css</a> <a href="#">#responsive</a>
-            <br>
-            <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+            <p> <%= photo.caption %> </p>
           </div>
         </div>
       </div>
 
     <% }) %>
 
+  </section>
 
-    <%# ---- Congrates ---- %>
-    <section id="ev-congrates">
-      <h2 class="title is-5">Congrates</h2>
+  <%# ---- Congrates ---- %>
 
-      <% event.comments.forEach(comment => { %>
-        <article class="media">
-          <figure class="media-left">
-            <p class="image is-64x64">
-              <img src="<%= comment.user.picture %>">
-            </p>
-          </figure>
-          <div class="media-content">
-            <div class="content">
-              <p>
-                <strong><%= comment.user.fullName %></strong>
-                <small>31m</small>
-                <br>
-                <%= comment.content %>
-              </p>
-            </div>
-          </div>
-          <% if(locals.isAuthenticated && event.user && locals.currentUser._id.equals(event.user._id)) { %>
-            <div class="media-right">
-              <form method="POST" action="/events/<%= event._id %>/comments/<%= comment._id %>">
-                <input type="hidden" name="_method" value="DELETE">
-                <button class="delete"></button>
-              </form>
-            </div>
-          <% } %>
-        </article>
-      <% }) %>
+  <section id="ev-congrates">
+    <hr>
 
+    <h2 class="title">Congrates</h2>
 
+    <% event.comments.forEach(comment => { %>
       <article class="media">
         <figure class="media-left">
           <p class="image is-64x64">
-            <img src="locals.currentUser.picture">
+            <img src="<%= comment.user.picture %>">
           </p>
         </figure>
         <div class="media-content">
-          <form method="POST" action="/events/<%= event._id %>/comments">
-            <div class="field">
-              <div class="control">
-                <textarea class="textarea" name="content" placeholder="Add a comment..."></textarea>
-              </div>
-            </div>
-            <button class="button is-primary">Submit</button>
-          </form>
+          <div class="content">
+            <p>
+              <strong><%= comment.user.fullName %></strong>
+              <br>
+              <%= comment.content %>
+            </p>
+          </div>
         </div>
+        <% if(locals.isAuthenticated && event.user && locals.currentUser._id.equals(event.user._id)) { %>
+          <div class="media-right">
+            <form method="POST" action="/events/<%= event._id %>/comments/<%= comment._id %>">
+              <input type="hidden" name="_method" value="DELETE">
+              <button class="delete"></button>
+            </form>
+          </div>
+        <% } %>
       </article>
-    </section>
-  <% } %>
-  </div>
-</section>
+    <% }); %>
+
+
+    <article class="media">
+      <div class="media-content">
+        <form method="POST" action="/events/<%= event._id %>/comments">
+          <div class="field">
+            <div class="control">
+              <textarea class="textarea" name="content" placeholder="Add a comment..."></textarea>
+            </div>
+          </div>
+          <button class="button is-primary is-link">Submit</button>
+        </form>
+      </div>
+    </article>
+  </section>
+
+
+  <%# ---- About ---- %>
+  <section class="ev-show-about">
+    <hr>
+
+    <h2 class="title">About</h2>
+
+    <p><%= event.about %></p>
+
+    <p class="location">
+      <span class="icon">
+        <i class="fas fa-map-marker-alt fa-2x"></i>
+      </span>
+      <%= event.location %>
+    </p>
+
+    <p>
+      <span class="icon">
+        <i class="far fa-clock fa-2x"></i>
+      </span>
+      <time datetime="<%= event.startTime %>"><%= event.startTime %></time>
+    </p>
+
+    <h3 class="subtitle">Members</h3>
+    <div class="columns">
+    <% event.members.forEach( member => { %>
+      <div class="column is-one-fifth">
+
+        <div class="member-picture">
+          <figure class="image is-64x64">
+            <img class="is-rounded" src="<%= member.user.picture %>">
+          </figure>
+        </div>
+
+        <div class="member-name">
+          <p>
+            <%= member.user.fullName %></br>
+            <% if(locals.currentUser._id.equals(member.user._id)){ %>
+              (You)
+            <% } %>
+          </p>
+        </div>
+
+      </div>
+    <% }); %>
+  </section>
+
+<% } %> <%# if isAuthenticated %>

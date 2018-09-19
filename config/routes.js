@@ -38,6 +38,8 @@ router.route('/register')
   .get(registrationsController.new)
   .post(registrationsController.create);
 
+router.get('/profile', secureRoute, registrationsController.show);
+
 router.route('/login')
   .get(sessionsController.new)
   .post(sessionsController.create);

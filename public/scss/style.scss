@@ -1,7 +1,27 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Sacramento|Fredericka+the+Great');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Sacramento|Fredericka+the+Great|Romanesco');
 
 body {
   font-family: 'Open Sans Condensed', sans-serif;
+
+  .button.is-link {
+    background: #31516F;
+    margin:5px;
+  }
+
+  .title {
+    padding: 10px;
+
+  }
+  nav.main {
+    position: absolute;
+    width: 100%;
+  }
+  section {
+    display: block;
+    background-color: white;
+    position: relative;
+    padding: 5px;
+  }
 
   .hero {
     background-color: #EFD9CE;
@@ -10,8 +30,10 @@ body {
     padding-top: 10%;
 
     h1.title {
+      margin-top: 20vh;
+      padding:30px;
       color: #ffffff;
-      font-size: 90px;
+      font-size: 70px;
 
       svg {
         width: 15px;
@@ -25,6 +47,117 @@ body {
       }
     }
   }
+
+  header.ev-show{
+    height: 55vw;
+    z-index: auto;
+
+    figure {
+      position: fixed;
+
+      h1 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 300%;
+        font-family: 'Romanesco', cursive;
+        color: #FCF8F6;
+      }
+    }
+  }
+
+  nav.ev-show {
+    position: -webkit-sticky;
+    position: sticky;
+    display: block;
+    top: 0;
+    margin-bottom: 0 !important;
+    background: #ffffff;
+    z-index: 4;
+
+    button#addPhoto {
+      background: #31516F;
+      color: white;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      position: absolute;
+      margin-top: 15px;
+      margin-left: 15px;
+      font-size: 14px;
+    }
+  }
+
+  .modal-content {
+    display: block;
+    background: #ffffff;
+    height: 70vh;
+    text-align: center;
+    padding: 20px;
+
+    input {
+      margin-bottom: 20px;
+    }
+    button.is-primary {
+      margin: 20px;
+    }
+
+  }
+
+  section.ev-show-photos{
+    .card-content.likes {
+      padding-bottom: 5 !important;;
+      button {
+        border: white;
+        i.fas{
+          color:#EF4C5F;
+        }
+      }
+    }
+    .card-content.info{
+      padding-top: 0 !important;;
+    }
+  }
+
+  section.ev-show-auth {
+    z-index: auto;
+
+    .card {
+      padding: 30px;
+      height: 60vh;
+      text-align:center;
+
+      p {
+        padding: 15px;
+        font-size: 18px;
+      }
+      button{
+        margin: 10px;
+      }
+    }
+  }
+
+  section.ev-show-about{
+    p {
+      padding: 10px;
+      font-size: 18px;
+
+
+
+      span.icon {
+        padding: 25px;
+        color: #7B90A3;
+      }
+    }
+
+    .subtitle {
+      margin-top: 10px;
+      padding: 15px;
+      font-weight: 600;
+    }
+
+  }
+
   .member-picture {
     margin-bottom: 20px;
     align-items: center;
@@ -50,27 +183,10 @@ body {
     margin-top: 16px;
   }
 
+  .ev-index-btns form{
+    display: inline;
+  }
 
-
-  //
-  // img.cover-image {
-  //   top:0;
-  //   position: absolute;
-  // }
-  // h1.event-name {
-  //   top: 40vh;
-  //   left: 40vw;
-  //   font-family: 'Fredericka the Great', cursive;
-  //   font-size: 80px;
-  //   position: absolute;
-  //   text-align: center;
-  //   color: #ffffff;
-  // }
-  // div.event-menu {
-  //   position: absolute;
-  //   color: #ffffff;
-  //   top: 50vh;
-  // }
 }
 
 /*# sourceMappingURL=style.css.map */

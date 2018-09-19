@@ -12,8 +12,17 @@ function createRoute(req, res) {
     res.redirect('/login');
   });
 }
+function showRoute(req, res) {
+  //// TODO: to fix at the end User.findById(req.currentUser._id).populate('cocktails').exec((err, user) => {
+  // get all the cocktails that a user created...
+  User.populate(req.currentUser, { path: 'eventsAttending' }, (err, user) => {
+    console.log(user.eventsAttending);
+    res.render('registrations/profile', { user });
+  });
+}
 
 module.exports = {
   new: newRoute,
-  create: createRoute
+  create: createRoute,
+  show: showRoute
 };
