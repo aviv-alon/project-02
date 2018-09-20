@@ -53,12 +53,15 @@ body {
     margin-bottom: 0 !important;
     background: #ffffff;
     z-index: 4; }
+    body nav.ev-show div.tabs {
+      margin-bottom: 0; }
     body nav.ev-show button#addPhoto {
       background: #31516F;
       color: white;
       border: 1px solid transparent;
       border-radius: 4px;
       position: absolute;
+      top: 0;
       margin-top: 15px;
       margin-left: 15px;
       font-size: 14px; }
