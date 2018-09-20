@@ -79,7 +79,7 @@ function createCommentRoute(req, res) {
   Event.findById(req.params.id, (err, event) => {
     event.comments.push(req.body);
     event.save(() => {
-      res.redirect(`/events/${req.params.id}`);
+      res.redirect(`/events/${req.params.id}/#ev-show-congrates`);
     });
   });
 }

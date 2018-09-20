@@ -24,7 +24,7 @@ body {
     display: block;
     background: #FCF8F6;
     position: relative;
-    
+
   }
 
   // home page
@@ -60,6 +60,7 @@ body {
 
     figure {
       position: fixed;
+
 
       h1 {
         position: absolute;
@@ -233,8 +234,11 @@ body {
     scroll-behavior: smooth;
     overflow-y: scroll;
 
-    .card {
+    h2 {
+      margin-top: 25px;;
+    }
 
+    .card {
       margin-top: 40px;
     }
   }
@@ -255,6 +259,10 @@ body {
     }
     section.section {
       padding:0;
+
+      h2 {
+        margin-top: 50px;;
+      }
 
       .card {
         margin-top: 0px;

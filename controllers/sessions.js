@@ -22,7 +22,7 @@ function createRoute(req, res) {
     if (req.session.returnTo)
       res.redirect(req.session.returnTo);
     else
-      res.redirect('/');
+      res.redirect('/events');
   });
 }
 

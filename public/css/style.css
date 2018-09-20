@@ -146,6 +146,8 @@ body {
     padding: 30px 20vw;
     scroll-behavior: smooth;
     overflow-y: scroll; }
+    body section.section h2 {
+      margin-top: 25px; }
     body section.section .card {
       margin-top: 40px; }
   body footer {
@@ -159,6 +161,8 @@ body {
       display: none; }
     body section.section {
       padding: 0; }
+      body section.section h2 {
+        margin-top: 50px; }
       body section.section .card {
         margin-top: 0px;
         border: none; } }
