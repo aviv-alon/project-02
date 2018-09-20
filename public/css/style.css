@@ -11,7 +11,7 @@ body {
     width: 100%; }
   body section {
     display: block;
-    background-color: white;
+    background: #FCF8F6;
     position: relative;
     padding: 5px; }
   body .hero {
@@ -23,9 +23,9 @@ body {
       margin-top: 20vh;
       padding: 30px;
       color: #ffffff;
-      font-size: 70px; }
+      font-size: 15vw; }
       body .hero h1.title svg {
-        width: 15px;
+        width: 2vw;
         transform: rotate(328deg);
         fill-opacity: 1;
         stroke-width: 1;
@@ -42,7 +42,7 @@ body {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        font-size: 300%;
+        font-size: 10vw;
         font-family: 'Romanesco', cursive;
         color: #FCF8F6; }
   body nav.ev-show {
@@ -119,8 +119,41 @@ body {
     transition: background-color .3s;
     box-shadow: 0 30px 40px 0 rgba(0, 0, 0, 0.15);
     margin-top: 16px; }
-  body .ev-index-btns form {
+  body section.ev-index .card {
+    margin-top: 10px; }
+  body section.ev-index .ev-index-btns form {
     display: inline; }
+  body section.ev-index .new-event p {
+    padding: 15px;
+    font-size: 25px; }
+  body section.ev-index .new-event img {
+    opacity: 0.2; }
+  body section.ev-index .new-event a {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+  body section.section {
+    background: #FCF8F6;
+    padding: 30px 20vw;
+    scroll-behavior: smooth;
+    overflow-y: scroll; }
+    body section.section .card {
+      margin-top: 40px; }
+  body footer {
+    display: block;
+    z-index: 4; }
+  @media (max-width: 1000px) {
+    body section.section {
+      padding: 30px 5vw; } }
+  @media (max-width: 600px) {
+    body .event-menu button p {
+      display: none; }
+    body section.section {
+      padding: 0; }
+      body section.section .card {
+        margin-top: 0px;
+        border: none; } }
 
 /*# sourceMappingURL=style.css.map */
 

@@ -22,32 +22,35 @@
     </div>
   </section>
 <% } else if(locals.isAuthenticated && !event.hasMember(locals.currentUser)) { %>
-
-  <form method="POST" action="/events/<%= event._id %>/join">
-    <button>
-      join
-    </button>
-  </form>
-
+  <section class="ev-show-auth">
+    <form method="POST" action="/events/<%= event._id %>/join">
+      <button class="button">
+        join
+      </button>
+    </form>
+  </section>
 <% } else if(locals.isAuthenticated && event.hasMember(locals.currentUser)) { %>
 
   <!-- navbar -->
   <nav class="content event-menu ev-show">
 
-    <button class="button is-small is-link" id="addPhoto">add Photo</button>
+    <button class="button is-small is-link" id="addPhoto">
+      <p>add Photo</p>
+      <i class="fas fa-plus"></i>
+    </button>
 
     <div class="tabs is-centered">
       <ul>
-        <li class="is-active"><a href="#ev-photos">Photos</a></li>
-        <li><a href="#ev-congrates">Congrates</a></li>
-        <li><a href="#ev-about">About</a></li>
+        <li class="is-active"><a href="#ev-show-photos">Photos</a></li>
+        <li><a href="#ev-show-congrates">Congrates</a></li>
+        <li><a href="#ev-show-about">About</a></li>
       </ul>
     </div>
 
   </nav>
-
+  <section class="section">
   <!-- Photos -->
-  <section class="ev-show-photos">
+  <section class="ev-show-photos" id="ev-show-photos">
 
     <!-- Photos - Add new photo -->
     <div class="modal">
@@ -144,7 +147,7 @@
 
   <%# ---- Congrates ---- %>
 
-  <section id="ev-congrates">
+  <section id="ev-show-congrates">
     <hr>
 
     <h2 class="title">Congrates</h2>
@@ -193,7 +196,7 @@
 
 
   <%# ---- About ---- %>
-  <section class="ev-show-about">
+  <section class="ev-show-about" id="ev-show-about">
     <hr>
 
     <h2 class="title">About</h2>
@@ -237,5 +240,5 @@
       </div>
     <% }); %>
   </section>
-
+  </section>
 <% } %> <%# if isAuthenticated %>

@@ -18,7 +18,7 @@ body {
   }
   section {
     display: block;
-    background-color: white;
+    background: #FCF8F6;
     position: relative;
     padding: 5px;
   }
@@ -33,10 +33,10 @@ body {
       margin-top: 20vh;
       padding:30px;
       color: #ffffff;
-      font-size: 70px;
+      font-size: 15vw;
 
       svg {
-        width: 15px;
+        width: 2vw;
         transform: rotate(328deg);
         fill-opacity: 1;
         stroke-width: 1;
@@ -60,7 +60,7 @@ body {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        font-size: 300%;
+        font-size: 10vw;;
         font-family: 'Romanesco', cursive;
         color: #FCF8F6;
       }
@@ -106,7 +106,7 @@ body {
 
   section.ev-show-photos{
     .card-content.likes {
-      padding-bottom: 5 !important;;
+      padding-bottom: 5 !important;
       button {
         border: white;
         i.fas{
@@ -182,11 +182,69 @@ body {
     box-shadow: 0 30px 40px 0 rgba(0, 0, 0, 0.15);
     margin-top: 16px;
   }
+  section.ev-index{
 
-  .ev-index-btns form{
-    display: inline;
+    .card{
+      margin-top: 10px;
+    }
+
+    .ev-index-btns form{
+      display: inline;
+    }
+    .new-event {
+      p {
+        padding: 15px;
+        font-size: 25px;
+      }
+      img {
+        opacity: 0.2;
+      }
+      a {
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+  }
+  section.section {
+    background: #FCF8F6;
+    padding: 30px 20vw;
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+
+    .card {
+
+      margin-top: 40px;
+    }
+  }
+  footer {
+    display: block;
+    z-index: 4;
+  }
+  //Tablet
+  @media (max-width: 1000px){
+    section.section {
+      padding: 30px 5vw;
+    }
+  }
+  //smartphone
+  @media (max-width: 600px) {
+    .event-menu button p {
+      display: none;
+    }
+    section.section {
+      padding:0;
+
+      .card {
+        margin-top: 0px;
+        border: none;
+      }
+    }
   }
 
 }
+
 
 /*# sourceMappingURL=style.css.map */
