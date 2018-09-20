@@ -159,6 +159,8 @@ body {
   @media (max-width: 600px) {
     body .event-menu button p {
       display: none; }
+    body form {
+      padding: 10px; }
     body section.section {
       padding: 0; }
       body section.section h2 {

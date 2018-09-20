@@ -5,7 +5,7 @@ const Event = require('../models/event');
 const User = require('../models/user');
 
 mongoose.connect(dbURI, (err, db) => {
-  db.dropDatabase(); // delete the database ready for new data
+  db.dropDatabase(); 
 
   User.create({
     fullName: 'Henry Charles Albert David',
