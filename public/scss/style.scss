@@ -3,6 +3,9 @@
 body {
   font-family: 'Open Sans Condensed', sans-serif;
 
+  img {
+    object-fit: cover;
+  }
   .button.is-link {
     background: #31516F;
     margin:5px;
@@ -16,13 +19,15 @@ body {
     position: absolute;
     width: 100%;
   }
+
   section {
     display: block;
     background: #FCF8F6;
     position: relative;
-    padding: 5px;
+    
   }
 
+  // home page
   .hero {
     background-color: #EFD9CE;
     color: white;
@@ -48,6 +53,7 @@ body {
     }
   }
 
+  // event show - header
   header.ev-show{
     height: 55vw;
     z-index: auto;
@@ -67,6 +73,7 @@ body {
     }
   }
 
+  // event show - navbar
   nav.ev-show {
     position: -webkit-sticky;
     position: sticky;
@@ -91,6 +98,11 @@ body {
       margin-top: 15px;
       margin-left: 15px;
       font-size: 14px;
+
+      i {
+        margin-bottom: 10%;
+        margin-left: 10%;
+      }
     }
   }
 
@@ -167,6 +179,7 @@ body {
   .member-picture {
     margin-bottom: 20px;
     align-items: center;
+    object-fit: cover;
   }
 
   .member-name {
