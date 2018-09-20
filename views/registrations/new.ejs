@@ -3,7 +3,7 @@
 <section class="section">
   <div class="container">
 
-    <h1 class="title">Sign up</h1>
+    <h2 class="title">Sign up</h2>
 
     <%# todo: add validation %>
     <form method="POST" action="/register">
@@ -13,7 +13,7 @@
       <div class="field">
         <label class="label" for="fullName">Full Name</label>
         <div class="control">
-          <input class="input" name="fullName" id="fullName" placeholder="Full Name" />
+          <input class="input" name="fullName" id="fullName" placeholder="Full Name" required/>
         </div>
       </div>
 
@@ -21,16 +21,35 @@
       <%# todo - add option to choose country number with flag%>
       <div class="field">
         <label class="label" for="phoneNumber">Phone Number</label>
+        <div class="field-body">
+          <div class="field is-expanded">
+            <div class="field has-addons">
+              <p class="control">
+                <a class="button is-static">
+                  +44
+                </a>
+              </p>
+              <p class="control is-expanded">
+                <input class="input" name="phoneNumber"  id="phoneNumber" type="tel" placeholder="Your phone number" required>
+              </p>
+            </div>
+            <p class="help">Do not enter the first zero</p>
+          </div>
+        </div>
+      </div>
+
+      <%# <div class="field">
+        <label class="label" for="phoneNumber">Phone Number</label>
         <div class="control">
           <input class="input" name="phoneNumber" id="phoneNumber" placeholder="Phone Number" />
         </div>
-      </div>
+      </div>%>
 
       <%# -Password- %>
       <div class="field">
         <label class="label" for="password">Password</label>
         <p class="control has-icons-left">
-          <input class="input" name="password" id="password" type="password" placeholder="Password">
+          <input class="input" name="password" id="password" type="password" placeholder="Password" required />
           <span class="icon is-small is-left">
             <i class="fas fa-lock"></i>
           </span>
@@ -41,7 +60,7 @@
       <div class="field">
         <label class="label" for="passwordConfirmation">Password Confirmation</label>
         <p class="control has-icons-left">
-          <input class="input" type="password" name="passwordConfirmation" id="passwordConfirmation" placeholder="Password Confirmation">
+          <input class="input" type="password" name="passwordConfirmation" id="passwordConfirmation" placeholder="Password Confirmation" required/>
           <span class="icon is-small is-left">
             <i class="fas fa-lock"></i>
           </span>
